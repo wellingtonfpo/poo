@@ -36,8 +36,8 @@ public class Main {
             System.out.println(currentEmployee);
 
             if (currentEmployee instanceof BasePlusCommissionEmployee) {
-                BasePlusCommissionEmployee employee =
-                        (BasePlusCommissionEmployee) currentEmployee;
+                BasePlusCommissionEmployee employee;
+                employee = (BasePlusCommissionEmployee) currentEmployee;
 
                 employee.setBaseSalary(1.10 * employee.getBaseSalary());
 
