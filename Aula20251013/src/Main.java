@@ -1,33 +1,52 @@
-//import v1.CommissionEmployee;
-//import v1.BasePlusCommissionEmployee;
-//import v2.BasePlusCommissionEmployee;
+import v3.*;
 
 public class Main {
     public static void main(String[] args) {
-//        CommissionEmployee employee = new CommissionEmployee(
-//                "John", "Doe", "123-45-6789", 10000, 0.06);
-//
-//        System.out.println("Employee Information:");
-//        System.out.println("Name: " + employee.getFirstName() + " " + employee.getLastName());
-//        System.out.println("SSN: " + employee.getSocialSecurityNumber());
-//        System.out.println("Gross Sales: $" + employee.getGrossSales());
-//        System.out.println("Commission Rate: " + employee.getCommissionRate());
-//        System.out.println("Earnings: $" + employee.earnings());
+        // create objects of subclasses
+        SalariedEmployee salariedEmployee =
+                new SalariedEmployee("Wellington", "Menezes", "111-11-1111", 800.0);
 
-//        BasePlusCommissionEmployee baseEmployee = new BasePlusCommissionEmployee(
-//                "Jane", "Smith", "987-65-4321", 5000, 0.04, 300);
-//        System.out.println("Base Plus Commission Employee Information:");
-//        System.out.println("Name: " + baseEmployee.getFirstName() + " " + baseEmployee.getLastName());
-//        System.out.println("SSN: " + baseEmployee.getSocialSecurityNumber());
-//        System.out.println("Gross Sales: $" + baseEmployee.getGrossSales());
-//        System.out.println("Commission Rate: " + baseEmployee.getCommissionRate());
-//        System.out.println("Base Salary: $" + baseEmployee.getBaseSalary());
-//        System.out.println("Earnings: $" + baseEmployee.earnings());
+        HourlyEmployee hourlyEmployee =
+                new HourlyEmployee("Ana", "Silva", "222-22-2222", 16.75, 40);
 
-//        BasePlusCommissionEmployee baseEmployeeV2 = new BasePlusCommissionEmployee(
-//                "Alice", "Johnson", "555-55-5555", 7000, 0.05, 400);
-//        System.out.println("Base Plus Commission Employee V2 Information:");
-//        System.out.println(baseEmployeeV2.toString());
-//        System.out.println("Earnings: $" + baseEmployeeV2.earnings());
-    }
+        CommissionEmployee commissionEmployee =
+                new CommissionEmployee("Carlos", "Santos", "333-33-3333", 10000.0, 0.06);
+
+        BasePlusCommissionEmployee basePlusCommissionEmployee =
+                new BasePlusCommissionEmployee("Maria", "Oliveira", "444-44-4444", 5000, 0.04, 300.0);
+
+        System.out.println("Employees processed individually:");
+
+        System.out.printf("%n%s%n%s: $%.2f%n%n", salariedEmployee, "earned", salariedEmployee.earnings());
+        System.out.printf("%s%n%s: $%.2f%n%n", hourlyEmployee, "earned", hourlyEmployee.earnings());
+        System.out.printf("%s%n%s: $%.2f%n%n", commissionEmployee, "earned", commissionEmployee.earnings());
+        System.out.printf("%s%n%s: $%.2f%n%n", basePlusCommissionEmployee, "earned", basePlusCommissionEmployee.earnings());
+
+        //create array of Employee references
+        Employee[] employees = new Employee[4];
+
+        // initialize array with Employees
+        employees[0] = salariedEmployee;
+        employees[1] = hourlyEmployee;
+        employees[2] = commissionEmployee;
+        employees[3] = basePlusCommissionEmployee;
+
+        System.out.println("Employees processed polymorphically:");
+        for (Employee currentEmployee : employees) {
+            System.out.println(currentEmployee);
+
+            if (currentEmployee instanceof BasePlusCommissionEmployee) {
+                BasePlusCommissionEmployee employee =
+                        (BasePlusCommissionEmployee) currentEmployee;
+
+                employee.setBaseSalary(1.10 * employee.getBaseSalary());
+
+                System.out.printf("new base salary with 10%% increase is: $%.2f%n", employee.getBaseSalary());
+            } // end if
+            System.out.printf("earned $%.2f%n%n", currentEmployee.earnings());
+        } // end for
+        for (int j = 0; j < employees.length; j++) {
+            System.out.printf("Employee %d is a %s%n", j, employees[j].getClass().getName());
+        }
+    } // end main
 }
