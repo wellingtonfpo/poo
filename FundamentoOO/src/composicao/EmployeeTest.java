@@ -16,6 +16,7 @@ public class EmployeeTest {
         System.out.println(employee1);
         System.out.println(employee2);
 
+        // uso do método getCount() para obter o número total de objetos Employee criados
         System.out.printf("Total employees: %d%n", Employee.getCount());
 
 
