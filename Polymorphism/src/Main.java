@@ -26,4 +26,14 @@ void main() {
     for (Forma f : formas) {
         System.out.println("Área: " + f.area());
     }
+
+
+    // Downcasting
+//    Forma f1 = new Circunferencia(1.5); Exceção ClassCastException
+
+//    Forma f1 = new Retangulo(2.5, 4.0);
+//    if (f1 instanceof Retangulo r) {
+//        Retangulo r = (Retangulo) f1;
+//        System.out.println("Perímetro do retângulo: " + r.perimetro());
+//    }
 }
