@@ -27,7 +27,6 @@ void main() {
         System.out.println("Área: " + f.area());
     }
 
-
     // Downcasting
 //    Forma f1 = new Circunferencia(1.5); Exceção ClassCastException
 
