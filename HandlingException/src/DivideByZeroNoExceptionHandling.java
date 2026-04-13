@@ -1,6 +1,7 @@
 public int quotient(int numerator, int denominator) {
     return numerator / denominator;
 }
+
 void main() {
     Scanner scanner = new Scanner(System.in);
 
