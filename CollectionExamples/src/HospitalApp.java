@@ -1,8 +1,8 @@
-static class Pacient implements Comparable<Pacient> {
+static class Patient implements Comparable<Patient> {
     private String name;
     private Integer age;
 
-    public Pacient(String name, Integer age) {
+    public Patient(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
@@ -16,7 +16,7 @@ static class Pacient implements Comparable<Pacient> {
     }
 
     @Override
-    public int compareTo(Pacient other) {
+    public int compareTo(Patient other) {
         return Integer.compare(other.getAge(), this.age); // Ordem decrescente por idade
     }
 
@@ -27,12 +27,12 @@ static class Pacient implements Comparable<Pacient> {
 }
 
 void main() {
-    PriorityQueue<Pacient> queue = new PriorityQueue<>();
+    PriorityQueue<Patient> queue = new PriorityQueue<>();
 
-    queue.add(new Pacient("Alice", 30));
-    queue.add(new Pacient("Bob", 25));
-    queue.add(new Pacient("Charlie", 40));
-    queue.add(new Pacient("Diana", 35));
+    queue.add(new Patient("Alice", 30));
+    queue.add(new Patient("Bob", 25));
+    queue.add(new Patient("Charlie", 40));
+    queue.add(new Patient("Diana", 35));
 
     IO.print("Atendendo pacientes por ordem de idade (mais velho primeiro):");
 
