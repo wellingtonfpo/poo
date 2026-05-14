@@ -1,6 +1,7 @@
 void main() {
-    String[] colors =
-            {"red", "green", "blue", "yellow", "red", "green", "blue", "yellow", "red", "red", "orange", "purple", "cyan", "magenta", "black", "white", "gray", "pink", "brown", "maroon", "navy", "teal"};
+    String[] colors = {"red", "green", "blue", "yellow", "red", "green", "blue", "yellow", "red", "red", "orange",
+            "purple", "cyan", "magenta", "black", "white", "gray", "pink", "brown", "maroon", "navy", "teal"};
+
     SortedSet<String> tree = new TreeSet<>(Arrays.asList(colors));
 
     IO.println("SortedSet: " + tree);
